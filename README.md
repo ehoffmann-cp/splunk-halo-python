@@ -1,4 +1,4 @@
-README for the Halo Event Connector Script 
+Halo Event Connector Script - Python
 ==================
 For sake of brevity, the document “Halo Event Connector” only covers integrating Halo events with the Splunk Enterprise Server SIEM tool.
 
@@ -12,14 +12,18 @@ For that, you would do something like this:
 
 Run crontab -e and add a line with the desired schedule, such as the following to run, say every 5 minutes
 
+```
 */5 * * * * /opt/cloudpassage/bin/haloEvents.py --starting=2012-11-10 --auth=/opt/cloudpassage/config/myHaloKeys.auth --configdir=/opt/cloudpassage/config --kvfile=/opt/cloudpassage/logs/eventsInKVFormat >/dev/null 2>&1
+```
 
 Save your changes before you exit.
 
 If you are extracting events from more than one (supports up to 5) Halo account, you can specify those in your myHaloKeys.auth file like this:
 
+```
 key_id_1|secret_1
 key_id_2|secret_2
 …
 …
 key_id_5|secret_5
+```
